@@ -13,6 +13,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  nixpkgs.config.allowUnfree = true;
+
   imports = [
     ../../modules/common/immutable-users.nix
     ../../modules/desktop/hyprland.nix
