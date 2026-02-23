@@ -22,6 +22,7 @@
   imports = [
     ../../modules/common/immutable-users.nix
     ../../modules/desktop/hyprland.nix
+    ../../modules/desktop/1password.nix
     ../../users/prenone
   ];
 
