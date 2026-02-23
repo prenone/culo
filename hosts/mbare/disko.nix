@@ -1,70 +1,74 @@
 { diskById, ... }:
 
 let
-	device = diskById;
-	bootSize = "1G";
-	swapSize = "32G";
+  device = diskById;
+  bootSize = "1G";
+  swapSize = "32G";
 in
 {
-	disko.devices.disk.main = {
-		type = "disk";
-		inherit device;
-		content = {
-			type = "gpt";
-			partitions = {
-				ESP = {
-					name = "ESP";
-					type = "EF00";
-					size = bootSize;
-					content = {
-						type = "filesystem";
-						format = "vfat";
-						mountpoint = "/boot";
-						mountOptions = [ "umask=0077" ];
-					};
-				};
-				luks = {
-					name = "luks";
-					size = "100%";
-					content = {
-						name = "cryptroot";
-						type = "luks";
+  disko.devices.disk.main = {
+    type = "disk";
+    inherit device;
+    content = {
+      type = "gpt";
+      partitions = {
+        ESP = {
+          name = "ESP";
+          type = "EF00";
+          size = bootSize;
+          content = {
+            type = "filesystem";
+            format = "vfat";
+            mountpoint = "/boot";
+            mountOptions = [ "umask=0077" ];
+          };
+        };
+        luks = {
+          name = "luks";
+          size = "100%";
+          content = {
+            name = "cryptroot";
+            type = "luks";
             settings.allowDiscards = true;
-						content = {
-							type = "btrfs";
-							extraArgs = [ "-f" ];
-							subvolumes = {
-								"@root" = {
-									mountpoint = "/";
-									mountOptions = [
-										"compress=zstd"
-										"noatime"
-									];
-								};
-								"@home" = {
-									mountpoint = "/home";
-									mountOptions = [
-										"compress=zstd"
-										"noatime"
-									];
-								};
-								"@nix" = {
-									mountpoint = "/nix";
-									mountOptions = [
-										"compress=zstd"
-										"noatime"
-									];
-								};
-								"@swap" = {
-									mountpoint = "/swap";
-									mountOptions = [ "noatime" "nodatacow" "compress=no" ];
-									swap.swapfile.size = swapSize;
-								};
-							};
-						};
-					};
-				};
-			};
-		};
-	};
+            content = {
+              type = "btrfs";
+              extraArgs = [ "-f" ];
+              subvolumes = {
+                "@root" = {
+                  mountpoint = "/";
+                  mountOptions = [
+                    "compress=zstd"
+                    "noatime"
+                  ];
+                };
+                "@home" = {
+                  mountpoint = "/home";
+                  mountOptions = [
+                    "compress=zstd"
+                    "noatime"
+                  ];
+                };
+                "@nix" = {
+                  mountpoint = "/nix";
+                  mountOptions = [
+                    "compress=zstd"
+                    "noatime"
+                  ];
+                };
+                "@swap" = {
+                  mountpoint = "/swap";
+                  mountOptions = [
+                    "noatime"
+                    "nodatacow"
+                    "compress=no"
+                  ];
+                  swap.swapfile.size = swapSize;
+                };
+              };
+            };
+          };
+        };
+      };
+    };
+  };
 }

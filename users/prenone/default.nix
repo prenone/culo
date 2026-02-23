@@ -5,7 +5,10 @@
     isNormalUser = true;
     description = "Achille";
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+    ];
     initialPassword = "changeme";
 
     home = "/home/prenone";

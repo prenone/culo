@@ -1,10 +1,10 @@
 { ... }:
 {
-    security.polkit.enable = true;
-    programs._1password.enable = true;
+  security.polkit.enable = true;
+  programs._1password.enable = true;
 
-    programs._1password-gui = {
-        enable = true;
-        polkitPolicyOwners = [ "prenone" ];
-    };
+  programs._1password-gui = {
+    enable = true;
+    polkitPolicyOwners = [ "prenone" ];
+  };
 }

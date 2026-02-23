@@ -1,9 +1,19 @@
-{ config, pkgs, lib, hostname, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  hostname,
+  ...
+}:
 
 {
   networking.hostName = hostname;
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "rtsx_pci_sdmmc" ];
+  boot.initrd.availableKernelModules = [
+    "xhci_pci"
+    "nvme"
+    "rtsx_pci_sdmmc"
+  ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
@@ -15,7 +25,10 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   networking.networkmanager.enable = true;
 
@@ -35,7 +48,6 @@
   security.sudo.wheelNeedsPassword = true;
 
   my.desktop.hyprland.enable = true;
-
 
   home-manager.users.prenone = import ../../users/prenone/home/default.nix;
   home-manager.backupFileExtension = "backup";

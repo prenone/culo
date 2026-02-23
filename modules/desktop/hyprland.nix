@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.my.desktop.hyprland;
@@ -28,8 +33,7 @@ in
 
     services.greetd = {
       enable = true;
-      settings.default_session.command =
-        "${pkgs.tuigreet}/bin/tuigreet --cmd Hyprland";
+      settings.default_session.command = "${pkgs.tuigreet}/bin/tuigreet --cmd Hyprland";
     };
   };
 }

@@ -15,7 +15,8 @@
     nur.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }:
+  outputs =
+    inputs@{ nixpkgs, home-manager, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -29,9 +30,12 @@
         specialArgs = { inherit inputs; };
 
         modules = [
-          ({ ... }: {
-            nixpkgs.overlays = import ./overlays { inherit inputs; };
-          })
+          (
+            { ... }:
+            {
+              nixpkgs.overlays = import ./overlays { inherit inputs; };
+            }
+          )
 
           home-manager.nixosModules.home-manager
           ./hosts/mbare
@@ -47,5 +51,7 @@
           nil
         ];
       };
+
+      formatter.${system} = pkgs.nixfmt-rfc-style;
     };
 }

@@ -9,42 +9,42 @@
 
     profiles.default = {
 
-    extensions = with pkgs.vscode-extensions; [
-      jnoortheen.nix-ide
-      mkhl.direnv
-    ];
+      extensions = with pkgs.vscode-extensions; [
+        jnoortheen.nix-ide
+        mkhl.direnv
+      ];
 
-    userSettings = {
-      "nix.enableLanguageServer" = true;
-      "nix.serverPath" = "nixd";
+      userSettings = {
+        "nix.enableLanguageServer" = true;
+        "nix.serverPath" = "nixd";
 
-      "nix.serverSettings" = {
-        nixd = {
-          formatting = {
-            command = [ "nixfmt" ];
-          };
-
-          nixpkgs = {
-            expr = "import <nixpkgs> { }";
-          };
-
-          options = {
-            nixos = {
-              expr = "(builtins.getFlake \"\${workspaceFolder}\").nixosConfigurations.mbare.options";
+        "nix.serverSettings" = {
+          nixd = {
+            formatting = {
+              command = [ "nixfmt" ];
             };
 
-            "home-manager" = {
-              expr = "(builtins.getFlake \"\${workspaceFolder}\").nixosConfigurations.mbare.options.home-manager.users.type.getSubOptions []";
+            nixpkgs = {
+              expr = "import <nixpkgs> { }";
+            };
+
+            options = {
+              nixos = {
+                expr = "(builtins.getFlake \"\${workspaceFolder}\").nixosConfigurations.mbare.options";
+              };
+
+              "home-manager" = {
+                expr = "(builtins.getFlake \"\${workspaceFolder}\").nixosConfigurations.mbare.options.home-manager.users.type.getSubOptions []";
+              };
             };
           };
         };
-      };
 
-      "[nix]" = {
-        "editor.defaultFormatter" = "jnoortheen.nix-ide";
-        "editor.formatOnSave" = false;
+        "[nix]" = {
+          "editor.defaultFormatter" = "jnoortheen.nix-ide";
+          "editor.formatOnSave" = false;
+        };
       };
     };
-  };
   };
 }
