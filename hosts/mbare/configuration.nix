@@ -17,6 +17,8 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  networking.networkmanager.enable = true;
+
   imports = [
     ../../modules/common/immutable-users.nix
     ../../modules/desktop/hyprland.nix
