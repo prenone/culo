@@ -15,6 +15,10 @@
       bind = [
         "$mod, Return, exec, alacritty"
       ];
+
+      input = {
+        touchpad.natural_scroll = true;
+      };
     };
   };
 }
