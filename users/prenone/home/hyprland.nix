@@ -1,6 +1,11 @@
 { config, pkgs, ... }:
 
 {
+  home.sessionVariables = {
+    NIXOS_OZONE_WL = 1;
+    ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
