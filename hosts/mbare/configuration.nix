@@ -19,10 +19,14 @@
 
   networking.networkmanager.enable = true;
 
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+
   imports = [
     ../../modules/common/immutable-users.nix
     ../../modules/common/restic.nix
     ../../modules/desktop/hyprland.nix
+    ../../modules/desktop/firefox.nix
     ../../modules/desktop/1password.nix
     ../../users/prenone
   ];
@@ -31,8 +35,7 @@
 
   my.desktop.hyprland.enable = true;
 
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
+
   home-manager.users.prenone = import ../../users/prenone/home/default.nix;
   home-manager.backupFileExtension = "backup";
 

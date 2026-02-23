@@ -10,6 +10,9 @@
 
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    nur.url = "github:nix-community/NUR";
+    nur.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs@{ nixpkgs, home-manager, ... }:
@@ -23,6 +26,10 @@
         specialArgs = { inherit inputs; };
 
         modules = [
+          ({ ... }: {
+            nixpkgs.overlays = import ./overlays { inherit inputs; };
+          })
+
           home-manager.nixosModules.home-manager
           
           ./hosts/mbare
