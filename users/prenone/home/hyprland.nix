@@ -19,6 +19,7 @@
 
       bind = [
         "$mod, Return, exec, alacritty"
+        "$mod, F, exec, firefox"
       ];
 
       input = {
