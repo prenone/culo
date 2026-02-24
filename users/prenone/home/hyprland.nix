@@ -1,6 +1,10 @@
 { ... }:
 
 {
+  imports = [
+    ./hyprland/wofi.nix
+  ];
+
   home.sessionVariables = {
     NIXOS_OZONE_WL = 1;
     ELECTRON_OZONE_PLATFORM_HINT = "wayland";
@@ -18,8 +22,7 @@
       ];
 
       bind = [
-        "$mod, Return, exec, alacritty"
-        "$mod, F, exec, firefox"
+        "$mod, Return, exec, wofi"
       ];
 
       bindel = [
