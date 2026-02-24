@@ -23,6 +23,8 @@
   # This veteran needs some rest...
   powerManagement.cpufreq.max = 2000000;
 
+  time.timeZone = "Europe/Rome";
+
   nixpkgs.config.allowUnfree = true;
 
   nix.settings.experimental-features = [
