@@ -52,10 +52,6 @@
           deadnix
           statix
           nil
-<<<<<<< HEAD
-=======
-          home-manager
->>>>>>> d1ee8c14bb1f785783dbfbc04144503acc796ab2
           git
         ];
       };
