@@ -1,5 +1,6 @@
-{ pkgs, ... }:
+{ ... }:
 {
-  programs.waybar.settings.main = {
+  programs.waybar = {
+    enable = true;
   };
 }

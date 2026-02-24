@@ -9,10 +9,6 @@ let
   cfg = config.my.desktop.hyprland;
 in
 {
-  imports = [
-    ./hyprland/waybar.nix
-  ];
-
   options.my.desktop.hyprland = {
     enable = lib.mkEnableOption "Hyprland desktop stack";
   };
