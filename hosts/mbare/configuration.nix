@@ -46,6 +46,7 @@
     ../../modules/desktop/1password.nix
     ../../modules/desktop/audio.nix
     ../../modules/desktop/brightness.nix
+    ../../modules/desktop/fonts.nix
     ../../users/prenone
   ];
 
