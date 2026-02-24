@@ -52,6 +52,8 @@
           deadnix
           statix
           nil
+          home-manager
+          git
         ];
       };
 
