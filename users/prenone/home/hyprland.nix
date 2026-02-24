@@ -4,6 +4,7 @@
   imports = [
     ./hyprland/wofi.nix
     ./hyprland/waybar.nix
+    ./hyprland/hyprpaper.nix
   ];
 
   home.sessionVariables = {
@@ -19,6 +20,7 @@
       "$mod" = "SUPER";
 
       exec-once = [
+        "hyprpaper"
         "waybar"
       ];
 
