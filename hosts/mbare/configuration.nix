@@ -23,6 +23,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # This veteran needs some rest...
+  powerManagement.cpufreq.max = 2000000;
+
   nixpkgs.config.allowUnfree = true;
 
   nix.settings.experimental-features = [
