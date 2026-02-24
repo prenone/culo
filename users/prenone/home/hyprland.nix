@@ -14,7 +14,7 @@
       "$mod" = "SUPER";
 
       exec-once = [
-        "alacritty"
+        "ashell"
       ];
 
       bind = [

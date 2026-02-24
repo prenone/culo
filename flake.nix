@@ -13,6 +13,9 @@
 
     nur.url = "github:nix-community/NUR";
     nur.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Not common stuff
+    ashell.url = "github:MalpenZibo/ashell";
   };
 
   outputs =
