@@ -52,6 +52,7 @@
           deadnix
           statix
           nil
+          git
         ];
       };
 
