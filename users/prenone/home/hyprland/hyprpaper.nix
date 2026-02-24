@@ -8,7 +8,7 @@ in
 
     settings = {
       preload = [ wp ];
-      wallpaper = [ "eDP-1,${wp}" ];
+      wallpaper = [ ",${wp}" ];
     };
   };
 }
