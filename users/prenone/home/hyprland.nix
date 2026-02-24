@@ -3,6 +3,7 @@
 {
   imports = [
     ./hyprland/wofi.nix
+    ./hyprland/waybar.nix
   ];
 
   home.sessionVariables = {
@@ -18,7 +19,7 @@
       "$mod" = "SUPER";
 
       exec-once = [
-        "ashell"
+        "waybar"
       ];
 
       bind = [

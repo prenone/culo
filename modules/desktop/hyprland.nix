@@ -10,7 +10,7 @@ let
 in
 {
   imports = [
-    ./hyprland/ashell.nix
+    ./hyprland/waybar.nix
   ];
 
   options.my.desktop.hyprland = {
