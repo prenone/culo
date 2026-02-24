@@ -42,7 +42,7 @@
 
         "[nix]" = {
           "editor.defaultFormatter" = "jnoortheen.nix-ide";
-          "editor.formatOnSave" = false;
+          "editor.formatOnSave" = true;
         };
       };
     };
