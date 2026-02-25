@@ -47,6 +47,10 @@
       input = {
         touchpad.natural_scroll = true;
       };
+
+      xwayland = {
+        force_zero_scaling = true;
+      };
     };
   };
 }

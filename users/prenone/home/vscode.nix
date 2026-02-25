@@ -1,14 +1,6 @@
 { pkgs, ... }:
 
 {
-  xdg.desktopEntries.code = {
-    name = "Visual Studio Code";
-    exec = "code --enable-features=UseOzonePlatform --ozone-platform=wayland";
-    terminal = false;
-    categories = [ "Development" ];
-    icon = "vscode";
-  };
-
   programs.vscode = {
     enable = true;
     package = pkgs.vscode;
