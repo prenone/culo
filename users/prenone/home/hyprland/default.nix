@@ -2,9 +2,9 @@
 
 {
   imports = [
-    ./hyprland/wofi.nix
-    ./hyprland/waybar.nix
-    ./hyprland/hyprpaper.nix
+    ./wofi.nix
+    ./waybar.nix
+    ./hyprpaper.nix
   ];
 
   home.sessionVariables = {
