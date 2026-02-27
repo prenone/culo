@@ -18,6 +18,8 @@
         "nix.enableLanguageServer" = true;
         "nix.serverPath" = "nixd";
 
+        "workbench.secondarySideBar.defaultVisibility" = "hidden";
+
         "nix.serverSettings" = {
           nixd = {
             formatting = {
