@@ -42,6 +42,25 @@
         ];
       };
 
+      nixosConfigurations.minchio = nixpkgs.lib.nixosSystem {
+        inherit system;
+
+        specialArgs = { inherit inputs; };
+
+        modules = [
+          (
+            { ... }:
+            {
+              nixpkgs.overlays = import ./overlays { inherit inputs; };
+            }
+          )
+
+          home-manager.nixosModules.home-manager
+          ./hosts/minchio
+        ];
+      };
+
+
       devShells.${system}.default = pkgs.mkShell {
         packages = with pkgs; [
           nixd
