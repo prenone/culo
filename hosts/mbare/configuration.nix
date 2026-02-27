@@ -39,7 +39,6 @@
 
   imports = [
     ../../modules/common/immutable-users.nix
-    ../../modules/common/restic.nix
     ../../modules/desktop/hyprland.nix
     ../../modules/desktop/1password.nix
     ../../modules/desktop/audio.nix
