@@ -14,6 +14,7 @@
     home = "/home/prenone";
     createHome = true;
 
+    linger = true;
   };
 
   programs.zsh.enable = true;

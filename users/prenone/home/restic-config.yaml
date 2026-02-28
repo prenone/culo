@@ -1,0 +1,37 @@
+version: "1"
+
+default:
+  base-dir: "{{ .ConfigDir }}"
+
+  env-file: "{{ .ConfigDir }}/b2.env"
+  repository-file: "{{ .ConfigDir }}/repository"
+  password-file: "{{ .ConfigDir }}/password"
+
+  no-lock: true
+
+
+  run-before:
+    - "nm-online -q -t 300"
+
+  backup:
+    source:
+      - "/home/prenone"
+    one-file-system: true
+    exclude-caches: true
+    tag:
+      - "automated"
+
+    schedule: "daily"
+    schedule-permission: "user_logged_on"
+    #schedule-after-network-online: true # this requires root, and I am too tired to figure it out right now
+
+    exclude:
+      - "/home/prenone/.cache"
+      - "/home/prenone/tmp"
+      - "/home/prenone/.zcompdump"
+      - "/home/prenone/.1password"
+      - "/home/prenone/.vscode"
+      - "/home/prenone/.nix-defexpr"
+      - "/home/prenone/.local/state/nix"
+      - "/home/prenone/.local/share/Trash"
+      - "/home/prenone/.mozilla/firefox"
