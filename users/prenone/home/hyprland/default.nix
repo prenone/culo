@@ -36,6 +36,7 @@
         "$mod, 8, workspace, 8"
         "$mod, 9, workspace, 9"
         "$mod, 0, workspace, 10"
+        ", Print, exec, grimblast copy area"
       ];
 
       bindel = [

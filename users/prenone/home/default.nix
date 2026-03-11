@@ -9,6 +9,7 @@
     ./firefox.nix
     ./vscode.nix
     ./direnv.nix
+    ./grimblast.nix
   ];
 
   prenone.restic.enable = true;
